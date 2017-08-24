@@ -1,0 +1,24 @@
+{
+	"_comment":"服務器工作地址",
+	"LAddr":":666",
+	
+	"_comment":"客戶端未活動 超時時間 單位 0，如果爲 0 永不超時",
+	"Timeout":600,
+
+	"_comment":"MYSQL 連接字符串",
+	"DB":"gosafe:12345678@/gosafe?charset=utf8",
+
+	"_comment":"封鎖 ip 時間 單位小時",	
+	"Duration":48,
+	
+	"_comment":"要打印的日誌 信息 TRACE DEBUG INFO ERROR FAULT",
+	"Logs":[
+		"TRACE",
+		"DEBUG",
+		"INFO",
+		"ERROR",
+		"FAULT"
+	],
+	"_comment":"日誌是否要打印 代碼行",
+	"LogLine":true
+}
