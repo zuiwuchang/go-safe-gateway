@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"go-safe-gateway/safe-server/db/manipulator"
 	"io/ioutil"
 	"time"
 )
@@ -9,7 +10,7 @@ import (
 type Configure struct {
 	LAddr   string
 	Timeout time.Duration
-	DB      string
+	DB      manipulator.Configure
 
 	Duration time.Duration
 
@@ -40,6 +41,8 @@ func initConfigure() error {
 	}
 	cnf.Logs = nil
 
+	cnf.Timeout *= time.Second
 	cnf.Duration *= time.Hour
+	cnf.DB.Live *= time.Minute
 	return nil
 }

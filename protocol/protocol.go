@@ -6,4 +6,8 @@ const (
 
 	//封鎖ip
 	CommandReject = 200
+
+	//ping
+	CommandPing   = 800
+	CommandPingNo = 801
 )

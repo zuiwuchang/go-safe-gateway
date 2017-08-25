@@ -21,34 +21,27 @@ type Server struct {
 
 func initCmds() (map[uint16]command.ICommand, error) {
 	cmds := make(map[uint16]command.ICommand)
-	/*
-		//login
-		cmd, e := command.NewCmdLogin(pwd)
-		if e != nil {
-			return nil, e
-		}
-		cmds[cmd.Code()] = cmd
 
-		//ping
-		cmd, e = command.NewCmdPing()
-		if e != nil {
-			return nil, e
-		}
-		cmds[cmd.Code()] = cmd
+	//ping
+	cmd, e := command.NewCmdPing()
+	if e != nil {
+		return nil, e
+	}
+	cmds[cmd.Code()] = cmd
 
-		//ping no rs
-		cmd, e = command.NewCmdPingNo()
-		if e != nil {
-			return nil, e
-		}
-		cmds[cmd.Code()] = cmd
+	//ping no rs
+	cmd, e = command.NewCmdPingNo()
+	if e != nil {
+		return nil, e
+	}
+	cmds[cmd.Code()] = cmd
 
-		//get file
-		cmd, e = command.NewCmdGetFile()
-		if e != nil {
-			return nil, e
-		}
-		cmds[cmd.Code()] = cmd*/
+	//reject
+	cmd, e = command.NewReject()
+	if e != nil {
+		return nil, e
+	}
+	cmds[cmd.Code()] = cmd
 	return cmds, nil
 }
 
@@ -74,22 +67,30 @@ func (s *Server) GetMessageSize(session0 echo.Session, b []byte) (int, error) {
 
 	//header size
 	if len(b) != HeaderSize {
-		return 0, errors.New("header size not match")
+		e := errors.New("header size not match")
+		logError.Println(e)
+		return 0, e
 	}
 	//flag
 	if byteOrder.Uint16(b) != HeaderFlag {
-		return 0, errors.New("header flag not match")
+		e := errors.New("header flag not match")
+		logError.Println(e)
+		return 0, e
 	}
 	//msg size
 	n := byteOrder.Uint16(b[2:])
 	if n < HeaderSize {
-		return 0, errors.New("message size not match")
+		e := errors.New("message size not match")
+		logError.Println(e)
+		return 0, e
 	}
 
 	//cmd
 	cmd := byteOrder.Uint16(b[4:])
 	if _, ok := s.cmds[cmd]; !ok {
-		return 0, errors.New("not found command")
+		e := errors.New("not found command")
+		logError.Println(e)
+		return 0, e
 	}
 	return int(n), nil
 }

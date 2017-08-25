@@ -7,9 +7,6 @@ import (
 )
 
 const (
-	CmdLogin   = 731
-	CmdPing    = 800
-	CmdPingNo  = 801
 	HeaderSize = protocol.HeaderSize
 	HeaderFlag = protocol.HeaderFlag
 )
@@ -68,7 +65,7 @@ func WriteCmd(order binary.ByteOrder, c net.Conn, cmd uint16, b []byte) error {
 
 	copy(data[HeaderSize:], b)
 
-	_, e := c.Write(b)
+	_, e := c.Write(data)
 	return e
 }
 func WriteCmdBytes(order binary.ByteOrder, c net.Conn, cmd uint16, b []byte) error {

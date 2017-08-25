@@ -2,12 +2,23 @@
 	"_comment":"服務器工作地址",
 	"LAddr":":6666",
 	
-	"_comment":"客戶端未活動 超時時間 單位 0，如果爲 0 永不超時",
+	"_comment":"客戶端未活動 超時時間 單位秒，如果爲 0 永不超時",
 	"Timeout":600,
 
-	"_comment":"MYSQL 連接字符串",
-	"DB":"gosafe:12345678@/gosafe?charset=utf8",
+	"_comment":"數據庫服務",
+	"DB":{
+		"_comment":"數據庫 驅動 目前只支持 mysql",
+		"Driver":"mysql",
 
+		"_comment":"數據庫 連接字符串",
+		"ConStr":"gosafe:12345678@/gosafe?charset=utf8",
+
+		"_comment":"是否 輸出 sql 指令到 stdout",
+		"ShowSql":false,
+
+		"_comment":"數據庫 ping 時間間隔 單位 分鐘",
+		"Live":60
+	},
 	"_comment":"封鎖 ip 時間 單位小時",	
 	"Duration":48,
 	

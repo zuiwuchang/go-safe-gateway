@@ -2,14 +2,15 @@ package command
 
 import (
 	"encoding/binary"
+	"go-safe-gateway/protocol"
 	"net"
 )
 
 func NewCmdPing() (ICommand, error) {
-	return &cmdPing{code: CmdPing, rs: true}, nil
+	return &cmdPing{code: protocol.CommandPing, rs: true}, nil
 }
 func NewCmdPingNo() (ICommand, error) {
-	return &cmdPing{code: CmdPingNo, rs: false}, nil
+	return &cmdPing{code: protocol.CommandPingNo, rs: false}, nil
 }
 
 type cmdPing struct {
