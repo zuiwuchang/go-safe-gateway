@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/binary"
 	"errors"
-	"fmt"
 	"king-go/net/echo"
 	"net"
 )
