@@ -1,12 +1,12 @@
 {
 	"_comment":"服務器工作地址",
-	"LAddr":":80",
+	"LAddr":":7000",
 	
 	"_comment":"客戶端未活動 超時時間 單位 0，如果爲 0 永不超時",
 	"Timeout":600,
 
 	"_comment":"要中轉的目標地址",
-	"Addr":"127.0.0.1:81",
+	"Addr":"127.0.0.1:5000",
 
 	"_comment":"安全設定",
 	"Safe":{
@@ -17,7 +17,7 @@
 		"Duration":1000,
 
 		"_comment":"安全服務器地址",
-		"Addr":"127.0.0.1:666"
+		"Addr":"127.0.0.1:6666"
 	},
 	
 	"_comment":"要打印的日誌 信息 TRACE DEBUG INFO ERROR FAULT",

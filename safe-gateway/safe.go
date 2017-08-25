@@ -14,18 +14,18 @@ type clientTemplate struct {
 }
 
 func (clientTemplate) GetHeaderSize() int {
-	return protocol.HeradrSize
+	return HeaderSize
 }
 func (clientTemplate) GetMessageSize(b []byte) (int, error) {
-	if len(b) != protocol.HeradrSize {
+	if len(b) != HeaderSize {
 		return 0, errors.New("header size not match")
 	}
 	order := getOrder()
-	if order.Uint16(b) != protocol.HeradrFlag {
+	if order.Uint16(b) != HeaderFlag {
 		return 0, errors.New("header flag not match")
 	}
 	n := order.Uint16(b[2:])
-	if n < protocol.HeradrSize {
+	if n < HeaderSize {
 		return 0, errors.New("message size not match")
 	}
 	return int(n), nil
@@ -53,14 +53,14 @@ func rejectIP(ip string) {
 	c.GetMessage(time.Second * 5)
 }
 func writeCmd(c net.Conn, cmd uint16, data []byte) error {
-	n := len(data) + protocol.HeradrSize
+	n := len(data) + HeaderSize
 	b := make([]byte, n)
 
 	order := getOrder()
-	order.PutUint16(b, protocol.HeradrFlag)
+	order.PutUint16(b, HeaderFlag)
 	order.PutUint16(b[2:], uint16(n))
 	order.PutUint16(b[4:], cmd)
-	copy(b[protocol.HeradrSize:], data)
+	copy(b[HeaderSize:], data)
 
 	_, e := c.Write(b)
 	return e

@@ -15,7 +15,7 @@ type Safe struct {
 func (s *Safe) ShowLog() {
 	logInfo.Println("safe addr", s.Addr)
 	logInfo.Println("safe num", s.Num)
-	logInfo.Println("safe Duration", s.Duration*time.Millisecond)
+	logInfo.Println("safe Duration", s.Duration)
 }
 
 type Configure struct {
@@ -50,5 +50,8 @@ func initConfigure() error {
 		cnf.Log[node] = 1
 	}
 	cnf.Logs = nil
+
+	cnf.Timeout *= time.Second
+	cnf.Safe.Duration *= time.Millisecond
 	return nil
 }

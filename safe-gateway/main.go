@@ -1,13 +1,16 @@
 package main
 
 import (
+	"go-safe-gateway/protocol"
 	"king-go/net/basic"
 	"log"
-	"time"
 )
 
 const (
 	ConfigureFile = "safe-gateway.json"
+
+	HeaderSize = protocol.HeaderSize
+	HeaderFlag = protocol.HeaderFlag
 )
 
 func main() {
@@ -30,7 +33,7 @@ func main() {
 	server := &Server{}
 
 	//創建服務器
-	s, e := basic.NewServer(cnf.LAddr, cnf.Timeout*time.Second, server)
+	s, e := basic.NewServer(cnf.LAddr, cnf.Timeout, server)
 	if e != nil {
 		logFault.Println(e)
 		return

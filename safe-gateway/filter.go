@@ -26,7 +26,7 @@ func (f *FilterInfo) SafeConnect() bool {
 	}
 
 	//時間異常
-	if now.Before(f.Last.Add(time.Millisecond * cnf.Safe.Duration)) {
+	if now.Before(f.Last.Add(cnf.Safe.Duration)) {
 		return false
 	}
 	return true
@@ -89,7 +89,6 @@ func (f *Filter) SafeConnect(addr net.Addr) bool {
 
 		//解除黑名單
 		time.AfterFunc(time.Hour, func() {
-
 			f.mutex.Lock()
 			delete(f.black, ip)
 			f.mutex.Unlock()
