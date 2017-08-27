@@ -18,18 +18,20 @@ func (f *FilterInfo) SafeConnect() bool {
 	now := time.Now()
 	cnf := getConfigure()
 
+	//時間安全
+	if now.After(f.Last.Add(cnf.Safe.Duration)) {
+		f.Num = 1
+		f.Last = now
+		return true
+	}
+
 	//連接次數 安全
 	if f.Num < cnf.Safe.Num {
 		f.Num++
 		f.Last = now
 		return true
 	}
-
-	//時間異常
-	if now.Before(f.Last.Add(cnf.Safe.Duration)) {
-		return false
-	}
-	return true
+	return false
 }
 func newFilterInfo() *FilterInfo {
 	now := time.Now()
