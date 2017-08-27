@@ -40,16 +40,16 @@ func (GoSafe) Add(ip string) error {
 		return e
 	}
 
-	//增加到防火牆設置
-	e = Add(ip)
-	if e != nil {
-		return e
-	}
-
 	//增加到 數據庫 記錄
 	if has {
 		_, e = session.Id(bean.Id).Update(&data.GoSafe{Ip: ip})
 	} else {
+		//增加到防火牆設置
+		e = Add(ip)
+		if e != nil {
+			return e
+		}
+
 		_, e = session.Insert(&data.GoSafe{Ip: ip})
 	}
 	return e

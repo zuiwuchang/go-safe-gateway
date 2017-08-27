@@ -16,7 +16,6 @@ func Add(ip string) error {
 	if e != nil {
 		return e
 	}
-	cmd.Wait()
 	return nil
 }
 func Erase(ip string) error {
@@ -29,6 +28,5 @@ func Erase(ip string) error {
 	if e != nil {
 		return e
 	}
-	cmd.Wait()
 	return nil
 }
