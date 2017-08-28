@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "king-spi-install", "king-spi-install\king-spi-install.vcxproj", "{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Debug|Win32.Build.0 = Debug|Win32
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Debug|x64.ActiveCfg = Debug|x64
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Debug|x64.Build.0 = Debug|x64
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Release|Win32.ActiveCfg = Release|Win32
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Release|Win32.Build.0 = Release|Win32
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Release|x64.ActiveCfg = Release|x64
+		{FEF123FA-1164-40D3-ACB8-3BA991ED1A01}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
