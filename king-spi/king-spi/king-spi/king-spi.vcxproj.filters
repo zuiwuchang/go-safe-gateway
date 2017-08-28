@@ -25,6 +25,9 @@
     <Filter Include="tcp">
       <UniqueIdentifier>{e0a994dc-00ab-42fc-81db-fc84308fa457}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ex">
+      <UniqueIdentifier>{a43b69a9-b72d-4327-a48c-0e1d38971fae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -54,6 +57,9 @@
     <ClInclude Include="singleton_tcp.h">
       <Filter>tcp</Filter>
     </ClInclude>
+    <ClInclude Include="singleton_ex.h">
+      <Filter>ex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -73,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="singleton_tcp.cpp">
       <Filter>tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="singleton_ex.cpp">
+      <Filter>ex</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

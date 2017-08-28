@@ -37,14 +37,14 @@ void singleton_filter::handler(const boost::system::error_code& e,deadline_timer
 }
 bool singleton_filter::request_safe(SOCKET s)
 {
+	
 	SOCKADDR_IN addr;
 	INT len = sizeof(addr);
-	if(!ProcTable.lpWSPGetPeerName(s,(sockaddr*)&addr,&len,NULL))
+	if(ProcTable.lpWSPGetPeerName(s,(sockaddr*)&addr,&len,NULL))
 	{
 		return false;
 	}
 	const std::string ip = inet_ntoa(addr.sin_addr);
-	
 	
 	boost::mutex::scoped_lock(_mutex);
 	KG_TRACE("request_safe "<<s<<" "<<ip);

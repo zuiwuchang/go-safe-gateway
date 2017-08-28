@@ -32,3 +32,27 @@ int WSPAPI WSPRecv(
   __in     LPWSATHREADID lpThreadId,
   __out    LPINT lpErrno
 );
+int WSPAPI WSPIoctl(
+  __in   SOCKET s,
+  __in   DWORD dwIoControlCode,
+  __in   LPVOID lpvInBuffer,
+  __in   DWORD cbInBuffer,
+  __out  LPVOID lpvOutBuffer,
+  __in   DWORD cbOutBuffer,
+  __out  LPDWORD lpcbBytesReturned,
+  __in   LPWSAOVERLAPPED lpOverlapped,
+  __in   LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine,
+  __in   LPWSATHREADID lpThreadId,
+  __out  LPINT lpErrno
+);
+
+BOOL PASCAL FAR ExtAcceptEx(
+    __in SOCKET sListenSocket,
+    __in SOCKET sAcceptSocket,
+    __in PVOID lpOutputBuffer,
+    __in DWORD dwReceiveDataLength,
+    __in DWORD dwLocalAddressLength,
+    __in DWORD dwRemoteAddressLength,
+    __out LPDWORD lpdwBytesReceived,
+    __inout LPOVERLAPPED lpOverlapped
+);

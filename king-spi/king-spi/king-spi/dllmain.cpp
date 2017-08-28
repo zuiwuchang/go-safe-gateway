@@ -14,9 +14,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 			//º”›d≈‰÷√
 			singleton_configure& cnf = singleton_configure::get_mutable_instance();
 			cnf.init(hModule);
-
-			//≥ı ºªØ ﬂ^ﬂ^ûV∆˜
-			singleton_filter::get_mutable_instance().init();
 		}
 	case DLL_THREAD_ATTACH:
 	case DLL_THREAD_DETACH:
